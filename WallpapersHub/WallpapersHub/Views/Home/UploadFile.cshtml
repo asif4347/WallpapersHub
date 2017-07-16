@@ -1,0 +1,30 @@
+﻿@model WallpapersHub.Models.imageData
+@{
+    ViewBag.Title = "UploadFile";
+}
+
+<h2>Upload Single File</h2>
+
+@using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div>
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+        <label>Category</label>
+        @Html.TextBox("Category")<br />
+        <label>Description</label>
+        @Html.EditorFor(model => model.Description)<br />
+        <label>Resolution</label>
+        @Html.EditorFor(model => model.Resolution)
+
+
+
+
+        <input type="submit" value="Upload" />
+
+        @ViewBag.Message
+
+    </div>
+
+
+}

@@ -1,0 +1,17 @@
+﻿@model WallpapersHub.Models.imageData
+@{
+    ViewBag.Title = "MultipleUpload";
+}
+
+<h2>MultipleUpload</h2>
+@using (Html.BeginForm("MultipleUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="attachments" id="attachments" multiple="multiple" />
+    <label>Category</label>
+        @Html.TextBox("Category")<br />
+        <label>Description</label>
+        @Html.EditorFor(model => model.Description)<br />
+        <label>Resolution</label>
+        @Html.EditorFor(model => model.Resolution)
+    <input type="submit" value="Post" />
+}
